@@ -1,6 +1,7 @@
 package Pagos;
 
-public class TipoCargo {
-    
-    
+public enum TipoCargo {
+
+    DIRECTIVO, ESTRATEGICO, OPERATIVO
+
 }

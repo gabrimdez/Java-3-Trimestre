@@ -128,19 +128,19 @@ public class VentanaAgregarEmpleado extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == agregar) {
-            añadirEmpleado();
-        } else if (evento.getSource() == limpiar) {
+            anadirEmpleado();
+        }
+        if (evento.getSource() == limpiar) {
             limpiarCampos();
         }
     }
 
-    private void añadirEmpleado() {
+    private void anadirEmpleado() {
         TipoCargo tipoC;
         String itemSeleccionado = (String) campoCargo.getSelectedItem();
-
         if ("Directivo".equals(itemSeleccionado)) {
             tipoC = TipoCargo.DIRECTIVO;
-        } else if ("Estratégico".equals(itemSeleccionado)) {
+        } else if ("Estrategico".equals(itemSeleccionado)) {
             tipoC = TipoCargo.ESTRATEGICO;
         } else {
             tipoC = TipoCargo.OPERATIVO;
@@ -159,6 +159,7 @@ public class VentanaAgregarEmpleado extends JFrame implements ActionListener {
 
             Empleado e = new Empleado(valor1, valor2, tipoC, tipoG, valor3, valor4, valor5, valor6, valor7);
             lista.agregarEmpleado(e);
+
             JOptionPane.showMessageDialog(this, "El empleado ha sido agregado", "Mensaje",
                     JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();

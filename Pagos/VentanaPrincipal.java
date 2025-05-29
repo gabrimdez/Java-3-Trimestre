@@ -26,7 +26,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     private JMenuItem itemMenu3;
 
     public VentanaPrincipal() {
-        empleados = new ListaEmpleados(); // Asegúrate de implementar esta clase
+        empleados = new ListaEmpleados();
         inicio();
         setTitle("Nomina");
         setSize(280, 380);
@@ -61,43 +61,34 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == itemMenu1) {
-            VentanaAgregarEmpleado ventanaAgregar = new VentanaAgregarEmpleado(empleados); // Implementa esta clase
+            VentanaAgregarEmpleado ventanaAgregar = new VentanaAgregarEmpleado(empleados);
             ventanaAgregar.setVisible(true);
         }
         if (evento.getSource() == itemMenu2) {
-            VentanaNomina ventanaNomina = new VentanaNomina(empleados); // Implementa esta clase
+            VentanaNomina ventanaNomina = new VentanaNomina(empleados);
             ventanaNomina.setVisible(true);
         }
         if (evento.getSource() == itemMenu3) {
             JFileChooser fc = new JFileChooser();
             fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int respuesta = fc.showOpenDialog(this);
-
             if (respuesta == JFileChooser.APPROVE_OPTION) {
                 File directorioElegido = fc.getSelectedFile();
-                String ruta = directorioElegido.getAbsolutePath(); // Cambiado para obtener la ruta completa
-
+                String nombre = directorioElegido.getAbsolutePath();
                 try {
-                    String contenido = empleados.convertirTexto(); // Asegúrate de que este método exista en
-                                                                   // ListaEmpleados
-                    File file = new File(ruta + File.separator + "Nomina.txt");
+                    String contenido = empleados.convertirTexto();
+                    File file = new File(nombre + File.separator + "Nomina.txt");
                     file.createNewFile();
                     FileWriter fw = new FileWriter(file);
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write(contenido);
                     bw.close();
-
-                    String texto = "El archivo de la nomina Nomina.txt se ha creado en " + ruta;
+                    String texto = "El archivo de la nomina Nomina.txt se ha creado en " + nombre;
                     JOptionPane.showMessageDialog(this, texto, "Mensaje", JOptionPane.INFORMATION_MESSAGE, null);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        VentanaPrincipal ventana = new VentanaPrincipal();
-        ventana.setVisible(true);
     }
 }

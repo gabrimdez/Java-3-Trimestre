@@ -4,7 +4,6 @@ public class VehiculoAereo extends Vehiculo {
 
     public VehiculoAereo(int velocidadActual, int velocidadMaxima) {
         super(velocidadActual, velocidadMaxima);
-        // TODO Auto-generated constructor stub
     }
 
     void acelerar(int velocidad) {

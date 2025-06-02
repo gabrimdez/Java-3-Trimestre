@@ -1,0 +1,10 @@
+TICKET DE COMPRA
+
+3 x ProductoA ($83.0) = $249.0
+3 x ProductoB ($199.0) = $597.0
+5 x ProductoC ($40.0) = $200.0
+2 x ProductoD ($168.0) = $336.0
+3 x ProductoE ($71.0) = $213.0
+2 x ProductoF ($168.0) = $336.0
+
+TOTAL con IVA (17%): $2259,27
